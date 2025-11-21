@@ -1,0 +1,55 @@
+/* ========== HEADER / NAV ========== */
+.header{
+  background: var(--bg);
+  color: var(--text);
+  box-shadow: 0 1px 4px rgba(0,0,0,.05);
+}
+.header__inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between; /* si quieres centrar la nav: center */
+  padding: 14px 0;
+}
+.brand{ font-weight:700; letter-spacing: .3px; }
+.nav{ list-style:none; display:flex; gap:16px; padding:0; margin:0; }
+.nav__link{
+  color: rgba(11,18,32,.78);
+  text-decoration: none;
+  padding:8px 10px;
+  border-radius:8px;
+  transition: color .2s, background .2s;
+}
+.nav__link:hover{
+  color: var(--primary);
+  background: rgba(249,155,155,.10);
+}
+.nav__link--active{
+  color: var(--primary);
+  font-weight:600;
+  background: rgba(249,155,155,.14);
+}
+
+/* ========== FOOTER ========== */
+.footer{
+  background: var(--bg);
+  color: var(--text);
+  border-top: 1px solid rgba(0,0,0,.05);
+}
+.footer .container{ padding: 14px 0; text-align:center; }
+
+/* ========== HERO ========== */
+.hero{
+  background: #fff;
+  padding: 18px;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(2,6,23,.04);
+}
+.hero__actions{ display:flex; gap: 10px; margin-top: 8px; }
+
+/* ========== CAROUSEL ========== */
+.carousel{ position:relative; height: 340px; border-radius: 16px; overflow:hidden; background:#000; }
+.carousel__slide{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transform: scale(1.02); transition: opacity 600ms ease, transform 1200ms ease; }
+.carousel__slide.is-active{ opacity:1; transform: scale(1); }
+.carousel__dots{ position:absolute; left:50%; bottom:12px; transform:translateX(-50%); display:flex; gap:8px; }
+.dot{ width:10px; height:10px; border-radius:999px; background: rgba(255,255,255,.5); border:0; cursor:pointer; }
+.dot--active{ background:#fff; }

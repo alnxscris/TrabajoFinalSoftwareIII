@@ -1,0 +1,88 @@
+/* ====== Home hero (solo layout de esta página) ====== */
+
+.home-hero {
+  padding: 56px 0;
+}
+
+.home-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr; /* texto | media */
+  align-items: center;
+  gap: 48px;
+}
+
+.home-copy { max-width: 640px; }
+
+.home-title {
+  margin: 0 0 12px;
+  font-size: clamp(2.2rem, 4.5vw, 3rem);
+  line-height: 1.15;
+  font-weight: 800;
+  color: #0b1220;
+}
+
+.home-lead {
+  color: #475569;
+  max-width: 520px;
+  margin: 0 0 18px;
+}
+
+.home-cta {
+  display: flex;
+  gap: 12px;
+}
+
+/* ====== Marco rosado + carrusel ====== */
+
+.home-media { display: flex; justify-content: center; }
+
+.home-media-frame {
+  position: relative;
+  width: min(480px, 90%);
+  background: #fde8ea;
+  border-radius: 32px;
+  padding: 18px;
+  box-shadow: 0 24px 60px rgba(2, 6, 23, .06);
+}
+
+/* alto interno del carrusel dentro del marco */
+.home-media-frame > .carousel {
+  position: relative;
+  height: 420px; /* ajustable */
+  border-radius: 22px;
+  overflow: hidden;
+}
+
+/* por si hubiera overlays previos */
+.home-media-frame::before,
+.home-media-frame::after { content: none !important; }
+
+/* ====== Comportamiento de botones SOLO en Home ====== */
+/* No redefinimos .btn globales. Solo reglas contextuales para evitar conflictos. */
+
+/* Hover contextual con más especificidad que el global */
+.home-cta .btn:hover {
+  background: color-mix(in srgb, var(--primary) 90%, #000 10%);
+}
+.home-cta .btn--secondary:hover {
+  background: #0b0f1a;
+}
+
+/* Intercambio de color al pasar el cursor */
+.home-cta:has(.btn--secondary:hover) .btn {
+  background: #111827; /* el primario se vuelve oscuro cuando el secundario tiene hover */
+  color: #fff;
+}
+.home-cta:has(.btn:hover) .btn--secondary {
+  background: var(--primary); /* el secundario se vuelve primario cuando el primario tiene hover */
+  color: #fff;
+}
+
+/* ====== Responsivo ====== */
+@media (max-width: 980px) {
+  .home-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .home-media { order: -1; } /* primero la imagen en móvil */
+}

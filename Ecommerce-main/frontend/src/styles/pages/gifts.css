@@ -1,0 +1,221 @@
+/* ===== Vista: Regalos ===== */
+
+.gifts-page {
+  padding: 8px 0 40px;
+}
+
+/* ===== Secciones ===== */
+.gifts-section {
+  margin: 24px 0 40px;
+}
+
+.gifts-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.gifts-title {
+  font-size: clamp(18px, 2.2vw, 22px);
+  font-weight: 800;
+}
+
+.gifts-nav {
+  display: flex;
+  gap: 8px;
+}
+
+.arrow {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.arrow:hover {
+  background: #f7f7f7;
+}
+
+/* ===== Carril horizontal con snap ===== */
+.gifts-row {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 8px;
+}
+
+.gifts-row::-webkit-scrollbar {
+  height: 8px;
+}
+
+.gifts-row::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.12);
+  border-radius: 999px;
+}
+
+/* ===== Tarjetas de regalo ===== */
+.gift-card {
+  width: 260px;
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  background: #fff;
+  border: 1px solid #f0f2f5;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(2, 6, 23, 0.04);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 0;
+}
+
+.gift-thumb {
+  width: 90%;
+  aspect-ratio: 4 / 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 12px;
+  background-color: #fff;
+}
+
+.gift-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* ===== Cuerpo de la tarjeta ===== */
+.gift-body {
+  display: grid;
+  grid-template-rows: auto auto 1fr auto; /* título | precio | espacio | botón */
+  gap: 8px;
+  padding: 12px;
+  width: 100%;
+  text-align: center;
+}
+
+.gift-title {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+.gift-price {
+  color: #374151;
+}
+
+/* ===== Botón dentro de la tarjeta ===== */
+.gift-card .btn {
+  display: block;        /* anula inline-block de .btn global */
+  width: 100%;           /* ocupa todo el ancho del .gift-body */
+  text-align: center;
+  margin-top: 0;         /* el grid ya gestiona el espacio */
+  transition: background 0.25s ease; /* transición suave */
+}
+
+/* Hover coherente con botones globales */
+.gift-card .btn:hover {
+  background: color-mix(in srgb, var(--primary) 90%, #000 10%);
+}
+
+/* ===== Modal (detalles) ===== */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 1000;
+}
+
+.modal__dialog {
+  background: #fff;
+  border-radius: 16px;
+  max-width: 900px;
+  width: 100%;
+  box-shadow: 0 24px 60px rgba(2, 6, 23, 0.25);
+  padding: 16px;
+  position: relative;
+}
+
+.modal__close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  border: 0;
+  background: transparent;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.modal__grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: 1fr 1.1fr;
+}
+
+.modal__media {
+  border: 1px solid #f0f2f5;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.modal__media img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.modal__title {
+  margin: 0 0 6px;
+  font-weight: 800;
+  font-size: clamp(18px, 2.5vw, 24px);
+}
+
+.modal__price {
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.modal__desc {
+  color: #374151;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.modal__actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 860px) {
+  .modal__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .gifts-row {
+    gap: 12px;
+  }
+  .gift-card {
+    width: 220px;
+  }
+}

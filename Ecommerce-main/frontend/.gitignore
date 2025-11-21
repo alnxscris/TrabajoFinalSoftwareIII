@@ -1,0 +1,42 @@
+# Le indica a git que cosas no debe subir al repositorio, por ejemplo: dependencias o config locales 
+
+# === DEPENDENCIAS ===
+node_modules/
+
+# === BUILD DE PRODUCCIÓN ===
+# dist/: evita subir el build generado por npm run build.
+dist/ 
+build/
+
+# === ARCHIVOS DE ENTORNO ===
+# env: protege tus variables del entorno (contraseñas, claves API).
+.env
+.env.local
+.env.development
+.env.production
+
+#*.log y *.tmp: evita archivos de debugging o temporales.
+
+# === LOGS ===
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# === SISTEMA / EDITOR ===
+.DS_Store
+Thumbs.db
+# .vscode/ y .idea/: ignora configuraciones locales de tu editor.
+.vscode/
+.idea/
+*.swp
+
+# === TESTS ===
+coverage/
+*.lcov
+
+# === OTROS ===
+*.tar.gz
+*.zip
+*.bak
+*.tmp

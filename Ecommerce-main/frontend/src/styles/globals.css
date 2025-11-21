@@ -1,0 +1,67 @@
+:root{
+  --bg:#ffffff;           /* header/footer */
+  --bg-body:#faf9f8;      /* fondo general */
+  --text:#0b1220;         /* texto principal */
+  --muted:#6b7280;        /* texto secundario */
+  --primary:#f99b9b;      /* botón primario */
+  --primary-600:#f99b9b;
+  --white:#ffffff;
+}
+
+*{ box-sizing: border-box; }
+html, body, #root { height: 100%; }
+
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  color: var(--text);
+  background: var(--bg-body);
+}
+
+/* Layout base */
+.app-root{ display:flex; min-height:100%; flex-direction:column; }
+main.container{ flex:1; padding: 24px 16px; max-width: 1200px; margin: 0 auto; }
+
+/* Utilidades */
+.stack-md > * + * { margin-top: 16px; }
+.stack-lg > * + * { margin-top: 24px; }
+
+/* Formularios */
+.form{ display:grid; gap: 12px; max-width: 420px; }
+.form__row{ display:grid; gap:6px; }
+.form input{ padding:10px 12px; border:1px solid #e5e7eb; border-radius:10px; background:#fff; }
+.error{ color:#b91c1c; margin: 8px 0; }
+
+/* Botones */
+/* Botones */
+.btn {
+  background: var(--primary);
+  color: var(--white);
+  border: 0;
+  padding: 10px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.2s ease; /* animación suave */
+}
+
+/* Hover: se aclara un poco */
+.btn:hover {
+  background: color-mix(in srgb, var(--primary) 90%, #000 10%);
+}
+
+/* Active (cuando se hace click): se oscurece un poco más */
+.btn:active {
+  background: color-mix(in srgb, var(--primary) 75%, #000 25%);
+}
+
+/* Secundario */
+.btn--secondary {
+  background: #111827;
+  color: #fff;
+}
+.btn--secondary:hover {
+  background: #0b0f1a;
+}
+.btn--secondary:active {
+  background: #06080f;
+}

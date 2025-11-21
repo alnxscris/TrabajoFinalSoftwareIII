@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    container_name: ecommerce_backend_local
+    ports:
+      - "4000:4000"
+    # Le decimos a Docker que lea tu archivo .env local del backend
+    env_file:
+      - ./backend/.env
+    restart: always
+
+  frontend:
+    build: ./frontend
+    container_name: ecommerce_frontend_local
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    restart: always

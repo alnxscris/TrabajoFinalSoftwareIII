@@ -1,0 +1,52 @@
+/* datos del envío */
+.checkout-page{ padding: 8px 0 36px; max-width: 760px; }
+.checkout-title{ margin: 0 0 14px; font-size: clamp(18px,2.4vw,24px); font-weight: 800; }
+
+.form{ display: grid; gap: 14px; }
+
+/* 2 columnas en desktop, 1 en mobile */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+@media (max-width: 680px){
+  .grid-2{ grid-template-columns: 1fr; }
+}
+
+/* Campo */
+.field{ display:grid; gap: 6px; }
+.field > span{ font-weight:600; font-size: 14px; }
+
+/* INPUT: tamaño totalmente fijo para evitar “saltos” */
+.field input{
+  width: 100%;
+  height: 44px;                   /* altura fija */
+  box-sizing: border-box;
+  border:1px solid #e5e7eb;
+  background:#fff;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 14px;
+  line-height: 22px;              /* constante */
+}
+
+/* Focus/errores (no afectan layout) */
+.field input[aria-invalid="true"]:focus{ outline-color:#ef4444; }
+.field input:focus{ outline:2px solid var(--primary-200, #fecdd3); }
+
+/* Mensajes por campo: RESERVAR ESPACIO SIEMPRE */
+.msg{
+  display: block;
+  min-height: 16px;               /* reserva espacio estable */
+  color:#b91c1c;
+  font-size:12.5px;
+  margin-top:4px;
+  visibility: hidden;             /* oculto pero ocupa el alto mínimo */
+}
+.msg.is-visible{
+  visibility: visible;            /* solo se muestra cuando hay error */
+}
+
+/* Aviso general */
+.hint{ color:#b91c1c; font-size: 13px; margin-top: 2px; }
+
+/* Botón con flecha a la derecha */
+.btn-arrow{ margin-left: 8px; font-size: 18px; line-height: 1; }
