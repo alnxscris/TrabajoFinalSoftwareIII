@@ -12,13 +12,15 @@ const pool = mariadb.createPool({
   connectionLimit: 5
 });
 
-pool.getConnection()
-  .then(conn => {
-    console.log("Conectado a la base de datos:", process.env.DB_NAME);
+// Añadimos un método query directo para facilitar testing
+pool.query = async (...args) => {
+  const conn = await pool.getConnection();
+  try {
+    return await conn.query(...args);
+  } finally {
     conn.release();
-  })
-  .catch(err => {
-    console.error("Error al conectar a la base de datos:", err.message);
-  });
+  }
+};
 
 export default pool;
+
